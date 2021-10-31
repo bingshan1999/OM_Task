@@ -1,3 +1,12 @@
+<?php 
+    require('classes/Amount.php');  
+    if (isset($_POST['amount'])){
+        $amount = new Amount($_POST['amount']);
+        echo $amount->input_amount;
+    }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,16 +54,17 @@
   </head>
   <body> 
     <div class="container col-sm-12 col-md-6 col-lg-4">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">    
         <div class="row mb-1">
             <input 
                 type="text" 
                 id="amount" 
                 name="amount" 
-                class="form-control border-0 text-end col-4 screen" 
+                class="form-control border-0 text-end screen" 
                 placeholder="Type or press your amount.."     
             >
         </div>
-
+        
         <div class="row">
             <button type="button" onClick="add('1')" class="btn col-4 machine-button">1</button>
             <button type="button" onClick="add('2')" class="btn col-4 machine-button">2</button>
@@ -79,7 +89,7 @@
             <button type="button" onClick="add('.')" class="btn col-4 machine-button">.</button>
             <button type="submit" name="submit" class="btn col-8 submit-button">Submit</button>
         </div>
-
+        </form>
     </div> <!-- end of container -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
