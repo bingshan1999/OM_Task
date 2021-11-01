@@ -57,62 +57,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="style/index.css" rel="stylesheet">
     <title>OM Coding Challenge</title>
-    <style>
-      body{
-        margin: 20px auto;
-        background-color: #f3f3f3;
-      }
-
-      .screen{
-          height: 120px;
-          background-color: #fff;
-      }
-
-      .machine-button{
-          height: 60px;
-          background-color: #00638B;
-          border-radius: 0;
-          border: 1px solid #fff;
-          color: #fff;
-      }
-
-      .machine-button:hover{
-          background-color: #fff;
-          color: #00638B;
-      }
-
-      .submit-button{
-          background-color: #088D61;
-          color: #fff;
-      }
-
-      .submit-button:hover{
-          border: 1px solid #fff;
-          color: #fff;
-      }
-
-      .reset-button{
-          background-color: #C44736;
-          color: #fff;
-          height: 50px;
-      }
-
-      .reset-button:hover{
-          color: #fff;
-      }
-
-      input[type=text]{
-          font-size: 30px;
-          font-weight: 700;
-      }
-
-      input[type=text]::placeholder{
-        font-size: 15px;
-        font-weight: 400;
-      }
-
-    </style>
   </head>
   <body class="container"> 
     <div class="row">
