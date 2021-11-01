@@ -2,7 +2,8 @@
     require('classes/Amount.php');  
     if (isset($_POST['amount'])){
         $amount = new Amount($_POST['amount']);
-        echo $amount->input_amount;
+        $amount->getPence();
+        echo $amount->pence_amount;
     }
 
 ?>
