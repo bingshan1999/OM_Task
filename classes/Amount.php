@@ -22,7 +22,7 @@ class Amount{
         if (preg_match('/^\£{1}\d+|\d+\.{1}/u', $this->input_amount)){
           # get the digits and convert to pence
           if (preg_match_all('/\d+(?:\.\d+)?/', $this->input_amount, $matches)){
-            $this->pence_amount = ceil((float)$matches[0][0] * 100);
+            $this->pence_amount = round((float)$matches[0][0] * 100);
           }
         }else{
           # condition for treating input as pence
