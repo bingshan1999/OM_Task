@@ -2,7 +2,9 @@
 class Amount{
     public $input_amount;
     public $pence_amount = 0;
-
+    public $note_array = [200,100,50,20,10,5,2,1];
+    public $note_count = [];
+    
     public function __construct($input){
         $this->input_amount = $input;
     }
@@ -29,7 +31,16 @@ class Amount{
           }
         }
       }
-  
     }
+
+    public function calculateMinNote(){
+        $value = $this->pence_amount;
+        for ($j=0; $j<count($this->note_array); $j++){
+          array_push($this->note_count, floor($value/$this->note_array[$j]));
+          $value %= $this->note_array[$j];
+          if ($value == 0) break;
+        }
+  
+      }
 }    
 ?>

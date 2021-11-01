@@ -1,9 +1,17 @@
 <?php 
     require('classes/Amount.php');  
+
+    $input = 0;
+    $out_string = "";
+    $out_pence =  0;
+
     if (isset($_POST['amount'])){
+        $input = $_POST['amount'];
         $amount = new Amount($_POST['amount']);
         $amount->getPence();
-        echo $amount->pence_amount;
+        $amount->calculateMinNote();
+        $out_pence = $amount->pence_amount;
+        $out_string = $amount->note_count;
     }
 
 ?>
@@ -57,13 +65,16 @@
     <div class="container col-sm-12 col-md-6 col-lg-4">
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">    
         <div class="row mb-1">
-            <input 
-                type="text" 
-                id="amount" 
-                name="amount" 
-                class="form-control border-0 text-end screen" 
-                placeholder="Type or press your amount.."     
-            >
+            <div class="col-12 text-end screen">
+                <h3><?php echo empty($input)? "<br/>": $input . " -> " . $out_pence ; ?></h3>
+                <input 
+                    type="text" 
+                    id="amount" 
+                    name="amount" 
+                    class="form-control border-0 text-end" 
+                    placeholder="Type or press your amount.." 
+                >
+            </div>
         </div>
         
         <div class="row">
