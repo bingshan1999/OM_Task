@@ -4,7 +4,8 @@ class Amount{
     public $pence_amount = 0;
     public $note_array = [200,100,50,20,10,5,2,1];
     public $note_count = [];
-    
+    public $output = "";
+
     public function __construct($input){
         $this->input_amount = $input;
     }
@@ -41,6 +42,27 @@ class Amount{
           if ($value == 0) break;
         }
   
-      }
+    }
+
+    public function toString(){
+        if ($this->pence_amount == 0) return;
+        for($x=0; $x<count($this->note_count); $x++){
+          //set pound sign or p sign according to the note value
+          if ($this->note_count[$x]==0) continue;
+          if ($this->note_array[$x]%100 == 0){
+            $this->output .= "£" . $this->note_array[$x]/100 . "X" . $this->note_count[$x] . ", ";
+          }else{
+            $this->output .= $this->note_array[$x] . "pX" . $this->note_count[$x] . ", ";
+          }
+          
+        }
+    }
+
+    public function cal(){
+        $this->getPence();
+        $this->calculateMinNote();
+        $this->toString();
+        return $this->output;
+    }
 }    
 ?>

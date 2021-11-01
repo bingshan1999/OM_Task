@@ -8,10 +8,9 @@
     if (isset($_POST['amount'])){
         $input = $_POST['amount'];
         $amount = new Amount($_POST['amount']);
-        $amount->getPence();
-        $amount->calculateMinNote();
+      
+        $out_string = $amount->cal();
         $out_pence = $amount->pence_amount;
-        $out_string = $amount->note_count;
     }
 
 ?>
@@ -72,7 +71,7 @@
                     id="amount" 
                     name="amount" 
                     class="form-control border-0 text-end" 
-                    placeholder="Type or press your amount.." 
+                    placeholder="<?php echo empty($out_string)? 'Type or press your amount..': $out_string; ?>"
                 >
             </div>
         </div>
