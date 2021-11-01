@@ -6,8 +6,11 @@
     $out_pence =  0;
 
     if (isset($_POST['amount'])){
-        $input = $_POST['amount'];
-        $amount = new Amount($_POST['amount']);
+        $input = trim($_POST['amount']);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+ 
+        $amount = new Amount($input);
       
         $out_string = $amount->cal();
         $out_pence = $amount->pence_amount;
