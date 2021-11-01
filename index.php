@@ -61,6 +61,26 @@
           color: #fff;
       }
 
+      .reset-button{
+          background-color: #C44736;
+          color: #fff;
+          height: 50px;
+      }
+
+      .reset-button:hover{
+          color: #fff;
+      }
+
+      input[type=text]{
+          font-size: 30px;
+          font-weight: 700;
+      }
+
+      input[type=text]::placeholder{
+        font-size: 15px;
+        font-weight: 400;
+      }
+
     </style>
   </head>
   <body> 
@@ -78,7 +98,9 @@
                 >
             </div>
         </div>
-        
+        <div class="row">
+            <button class="col-12 btn reset-button" onClick="reset()">Reset</button>
+        </div>
         <div class="row">
             <button type="button" onClick="add('1')" class="btn col-4 machine-button">1</button>
             <button type="button" onClick="add('2')" class="btn col-4 machine-button">2</button>
@@ -112,6 +134,11 @@
         function add(val){
             let input = document.getElementById('amount');
             input.value = input.value + val;
+        }
+
+        function reset(){
+            let input = document.getElementById('amount');
+            input.value = "";
         }
     </script>
   </body>
